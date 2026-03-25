@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video as Monument — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 15px; font-weight: 500; color: var(--text); margin: 56px 0 20px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  /* Blockquotes */
+  .info-quote { border-left: 2px solid var(--border); padding-left: 20px; margin: 40px 0; font-size: 13.5px; line-height: 1.8; color: var(--muted); font-style: italic; }
+
+  /* Details Grid (For Stats) */
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; padding: 24px; background: #fafafa; border-radius: 6px; border: 1px solid var(--border); }
+  @media (min-width: 600px) { .detail-grid { grid-template-columns: repeat(4, 1fr); } }
+  .detail-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .detail-value { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+
+  /* 2-Column Grid */
+  .intervention-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin: 40px 0; }
+  @media (min-width: 600px) { .intervention-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; } }
+  .int-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .int-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .int-col p { font-size: 12.5px; line-height: 1.6; margin-bottom: 12px; padding-left: 12px; border-left: 2px solid #eee; }
+
+  /* Video Embeds */
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 24px 0 48px 0; border: 1px solid var(--border); background: #f9fafb; }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Work</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Video as Monument</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Video as Monument: A Cage of Pixels</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>Dec 2025</span>
+    <span class="article-tag">Projection Mapping</span>
+    <span class="article-tag">New Media Art</span>
+  </div>
+
+  <div class="prose">
+
+    <p class="cg-reveal" data-delay="4">
+      We are told that the internet is a place of infinite connection. That it is a library, a town square, a revolution. But if you stand still long enough and watch what actually flows through the glass screens in our pockets, you realize it is none of these things. It is a feed. And a feed is not designed to connect us; it is designed to keep us eating.
+    </p>
+
+    <div class="info-quote cg-reveal" data-delay="5">
+      I had considered projection mapping to be a largely aesthetic endeavor. A way to dress up architecture, to make the static dynamic, to impose a layer of light onto a layer of concrete. But as with most things that appear simple from a distance, the reality was a far more complicated cocktail of technical frustration and conceptual wandering.
+    </div>
+
+    <div class="detail-grid cg-reveal">
+      <div>
+        <div class="detail-label">Medium</div>
+        <div class="detail-value">Projection Mapping, Found Footage</div>
+      </div>
+      <div>
+        <div class="detail-label">Role</div>
+        <div class="detail-value">Ideation & Execution</div>
+      </div>
+      <div>
+        <div class="detail-label">Collaborators</div>
+        <div class="detail-value">Chris Mathew, Vihaan Vyas</div>
+      </div>
+      <div>
+        <div class="detail-label">Date</div>
+        <div class="detail-value">December 2025</div>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">The Public Shadow</h2>
+    <p class="cg-reveal">
+      The project was not born from a desire to create something beautiful. It was born from a recognition of a shadow. Specifically, the digital shadow that follows us all. We live in an era where our physical reality is increasingly overwritten by a digital one, where a student in India is more redolent of American culture wars than their own local politics. 
+    </p>
+    <p class="cg-reveal">
+      We wanted to take this private, handheld phenomenon—the "brainrot" of the infinite scroll—and scale it up from the confines of a small room to the public solidity of the campus wall. We forced a confrontation between two opposing systems: the stability of the physical world and the disposable chaos of the digital one.
+    </p>
+
+    <div class="video-wrapper cg-reveal">
+      <iframe src="https://www.youtube.com/embed/ChaMoyFG2Nc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="cg-reveal">Scavenging the Algorithm</h2>
+    <p class="cg-reveal">
+      This process was, in many ways, an exercise in contradiction. To critique the "sludge" of the attention economy, we had to become its most diligent archivists. The footage you see—the soldiers, the puppies, the screaming influencers, the glitches—was not filmed by us. To create new images in an era drowning in them seemed not only redundant but hypocritical.
+    </p>
+    <p class="cg-reveal">
+      Instead, we scavenged. We downloaded. We aggregated. We became the algorithm. We acted as scrapers, pulling clips from the very platforms that hold our attention captive. We did not author this content; the algorithm did. We merely arranged the debris. It is one thing to criticize the noise of the world; it is another to voluntarily fill your own hard drive with it.
+    </p>
+
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">The Lure</div>
+        <p>The structure follows the logic of the trap. It begins with the lure: the innocence of a dog video, a relic of a simpler, pre-algorithmic web. But innocence is a poor business model. And so, the feed accelerates.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">The Sludge</div>
+        <p>The walls fill with a cacophony of reels, memes, and imported crises that have no geographic relevance to where we are standing. This is the colonial power of the algorithm: it sells us a reality.</p>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Designing for Friction</h2>
+    <p class="cg-reveal">
+      Technically, the challenge was not just in the software but in the translation of sensation. How do you make a wall feel anxious? We found that the answer lay not in the image itself, but in the glitch. In the breakdown. A pristine projection suggests mastery; a glitching one suggests a system in collapse. By using our skills to simulate these ruptures, we weren't just projecting video; we were projecting the nervous breakdown of the digital subject.
+    </p>
+    <p class="cg-reveal">
+      There is a temptation in design to seek the "clean" solution, the user-centered ideal where everything works. But this project required the opposite. It required us to design for friction, for discomfort, for the feeling of being trapped. 
+    </p>
+    <p class="cg-reveal">
+      There is a moment where the chaos breaks, and we are offered a pause. A pop-up asks if we want to stop. But the cursor, jittery and controlled by an invisible hand, forcibly clicks "No." Ostensibly a small moment of UI animation, it is in truth the thesis of the entire piece: the illusion of agency in a system designed to strip it away.
+    </p>
+
+    <h2 class="cg-reveal">Reflection</h2>
+    <p class="cg-reveal">
+      Ultimately, this projection is a monument to our own cognitive decay. It is a mirror held up to the "shadow self" of the internet—the parts we consume in private but refuse to acknowledge in public. It is violent, it is nonsensical, and it is overwhelmingly loud. But it is also, undeniably, ours.
+    </p>
+    <p class="cg-reveal">
+      I am not sure if we solved the problem of "brainrot," or if such a problem can even be solved by art. The goal is not to vanquish the monster but to acknowledge it exists. By plastering our collective digital anxieties onto the side of a building, we did not cure the addiction. We simply made it impossible to ignore. And perhaps that is enough.
+    </p>
+
+    <div class="next-project cg-reveal">
+      
+      <div>
+        <a href="biocon.html" style="font-weight: 500; color: var(--text);">Next: BioCon Hebbagodi </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
+</body>
+</html>

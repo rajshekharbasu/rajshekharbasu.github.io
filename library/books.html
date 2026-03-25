@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books I've Read — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 16px; font-weight: 500; color: var(--text); margin: 64px 0 8px 0; letter-spacing: -0.01em; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+  
+  .book-author { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+  /* 2-Column Grid for Books */
+  .intervention-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin: 32px 0 40px 0; }
+  @media (min-width: 600px) { .intervention-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+  .int-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .int-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .int-col p { font-size: 13px; line-height: 1.7; margin-bottom: 12px; color: #444; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Library</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Books</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Books I've Read</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>Library</span>
+    <span class="article-tag">Curations</span>
+    <span class="article-tag">Taste</span>
+  </div>
+
+  <div class="prose">
+    <p class="cg-reveal" data-delay="4">
+      A collection of writing that has shaped how I think about design, worldbuilding, and systems. I read to understand how different authors structure reality, handle constraints, and navigate the friction between people and the environments they inhabit.
+    </p>
+
+    <h2 class="cg-reveal">Under the Eye of the Big Bird</h2>
+    <div class="book-author cg-reveal">Hiromi Kawakami</div>
+    
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">The Takeaway</div>
+        <p>
+          This book sharpened how to think about worlds that are already living in the aftermath of catastrophe rather than on the brink of it. It showed how everyday life, relationships, and small decisions continue under large, planetary-scale forces that no one fully controls, which changed how leadership and responsibility feel to me.
+        </p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">The Context</div>
+        <p>
+          Hiromi Kawakami (born 1958, Tokyo) is one of Japan's most acclaimed contemporary novelists, known for quietly surreal stories that blur the line between the ordinary and the uncanny.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Dune</h2>
+    <div class="book-author cg-reveal">Frank Herbert</div>
+
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">The Takeaway</div>
+        <p>
+          Dune changed how I think about systems by fusing politics, ecology, religion, and economics into one precarious planetary design problem rather than separate themes. Arrakis made scarcity, climate, and resource extraction feel like hard constraints that shape every possible choice, which feeds directly into how I now think about survival mechanics and worldbuilding in my own projects.
+        </p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">The Context</div>
+        <p>
+          Frank Herbert (1920–1986) was an American science fiction writer best known for Dune and its sequels, which combine ecology, politics, religion, and human evolution at an epic scale. He worked as a journalist and even as an ecological consultant before becoming a full-time novelist, and I find it very clear that this background shapes Dune's obsession with planetary environments and complex social systems.
+        </p>
+      </div>
+    </div>
+
+    <div class="next-project cg-reveal">
+      
+      <div>
+        <a href="../index.html" style="font-weight: 500; color: var(--text);">Back to Home →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -20px 0px" 
+    });
+
+    reveals.forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+</body>
+</html>

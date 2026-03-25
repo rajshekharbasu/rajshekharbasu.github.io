@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offside League — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 15px; font-weight: 500; color: var(--text); margin: 56px 0 20px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  /* Blockquotes */
+  .info-quote { border-left: 2px solid var(--border); padding-left: 20px; margin: 40px 0; font-size: 13.5px; line-height: 1.8; color: var(--muted); font-style: italic; }
+
+  /* Details Grid (For Stats) */
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; padding: 24px; background: #fafafa; border-radius: 6px; border: 1px solid var(--border); }
+  @media (min-width: 600px) { .detail-grid { grid-template-columns: repeat(4, 1fr); } }
+  .detail-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .detail-value { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+
+  /* 2-Column Grid for Features */
+  .intervention-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin: 40px 0; }
+  @media (min-width: 600px) { .intervention-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; } }
+  .int-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .int-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .int-col p { font-size: 12.5px; line-height: 1.6; margin-bottom: 12px; padding-left: 12px; border-left: 2px solid #eee; }
+
+  /* Task/List boxes */
+  .task-box { border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin: 32px 0; background: #ffffff; }
+  .task-item { font-size: 13.5px; color: #444; margin-bottom: 16px; line-height: 1.6; padding-bottom: 16px; border-bottom: 1px solid #f5f5f5; }
+  .task-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .task-item strong { display: block; font-size: 12.5px; color: var(--text); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.02em; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Work</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Offside League</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Offside League — BITS Goa Football</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>2024–2025</span>
+    <span class="article-tag">Web Design</span>
+    <span class="article-tag">Real-time Data</span>
+    <a href="https://offside-bitsgoa.vercel.app/" target="_blank" style="font-size:12px; color:var(--muted); text-decoration:underline; text-decoration-color:var(--border);">↗ Live site</a>
+  </div>
+
+  <div class="prose">
+
+    <p class="cg-reveal" data-delay="4">
+      Offside is a full-featured football league platform built for the BITS Goa campus community. It tracks live standings, match results, team profiles, player stats, and a media gallery — built to take amateur football seriously.
+    </p>
+
+    <div class="info-quote cg-reveal" data-delay="5">
+      Most campus sports live in WhatsApp groups and spreadsheets. The goal was to give BITS Goa football the infrastructure of a real league — because the people playing it treat it like one.
+    </div>
+
+    <div class="detail-grid cg-reveal">
+      <div>
+        <div class="detail-label">Status</div>
+        <div class="detail-value">Live, S2 Active</div>
+      </div>
+      <div>
+        <div class="detail-label">Data</div>
+        <div class="detail-value">Real-time standings & results</div>
+      </div>
+      <div>
+        <div class="detail-label">Audience</div>
+        <div class="detail-value">BITS Goa community</div>
+      </div>
+      <div>
+        <div class="detail-label">My Role</div>
+        <div class="detail-value">Design, front-end code</div>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">The Problem</h2>
+    <p class="cg-reveal">
+      Campus sports leagues in India operate on informal infrastructure — fixture sheets on notice boards, results in group chats, no persistent record of who played, who scored, or what happened. The problem isn't that people don't care; it's that the tools signal they shouldn't.
+    </p>
+    <p class="cg-reveal">
+      Offside started from a simple bet: if you gave the league a proper home on the web, it would change how players and spectators related to it.
+    </p>
+
+    <h2 class="cg-reveal">What It Does</h2>
+
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">Live Standings</div>
+        <p>A real-time table showing team rankings, points, goal difference, and form — updated after every match.</p>
+        <p>The same information that football fans take for granted in professional leagues, applied to a campus setting.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">Match Results & Fixtures</div>
+        <p>Every match is logged with scoreline, goalscorers, and a timestamp. Upcoming fixtures are surfaced so people know when to show up.</p>
+        <p>The record persists — so Season 1 is still browsable inside Season 2.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">Team Profiles</div>
+        <p>Each team gets a page: squad list, season stats, head-to-head record.</p>
+        <p>Players can see their name on the platform, which turns out to matter more than expected.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">Media Gallery</div>
+        <p>Match photography and clips, organised by match.</p>
+        <p>The gallery is the most-visited section of the site — people come for the football and stay for the photos.</p>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">What I Learned</h2>
+    
+    <div class="task-box cg-reveal">
+      <div class="task-item">
+        <strong>Trust is the hardest design problem</strong>
+        The hardest part wasn't the interface — it was convincing people to trust a new system. The first season was mostly building credibility: keeping the data accurate, updating quickly, making the experience reliable enough that people checked it without being reminded.
+      </div>
+      <div class="task-item">
+        <strong>Obsession indicates success</strong>
+        By Season 2, people were checking the table obsessively. That's the design working.
+      </div>
+    </div>
+
+    <div class="next-project cg-reveal">
+      
+      <div>
+        <a href="3d-portfolio.html" style="font-weight: 500; color: var(--text);">Next: 3D Portfolio →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
+</body>
+</html>

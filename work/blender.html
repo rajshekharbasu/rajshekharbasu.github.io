@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blender Animations — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 15px; font-weight: 500; color: var(--text); margin: 56px 0 20px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  /* Details Grid (For Stats) */
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; padding: 24px; background: #fafafa; border-radius: 6px; border: 1px solid var(--border); }
+  @media (min-width: 600px) { .detail-grid { grid-template-columns: repeat(4, 1fr); } }
+  .detail-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .detail-value { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+
+  /* Video Embeds */
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 24px 0 48px 0; border: 1px solid var(--border); background: #f9fafb; }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Work</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Blender</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Blender Animations</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>2023–2025</span>
+    <span class="article-tag">3D</span>
+    <span class="article-tag">Motion</span>
+  </div>
+
+  <div class="prose">
+
+    <p class="cg-reveal" data-delay="4">
+      A collection of motion and 3D works made in Blender — each one an attempt to translate a feeling, a place, or a question into image. The process involves iteration, failed renders, and a lot of staring at viewport shading.
+    </p>
+
+    <div class="detail-grid cg-reveal" style="margin-top: 32px;">
+      <div>
+        <div class="detail-label">Software</div>
+        <div class="detail-value">Blender 4.x, Unity, After Effects</div>
+      </div>
+      <div>
+        <div class="detail-label">Renderer</div>
+        <div class="detail-value">Cycles, EEVEE</div>
+      </div>
+      <div>
+        <div class="detail-label">Works</div>
+        <div class="detail-value">4 completed pieces</div>
+      </div>
+      <div>
+        <div class="detail-label">Period</div>
+        <div class="detail-value">2023–2025</div>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Non Spaces</h2>
+    <p class="cg-reveal">
+      A six-room visual journey through various hyperboles of the emotions we feel in non-places. Places designed for transition — airports, corridors, waiting rooms, car parks. Places that exist to be passed through, not inhabited.
+    </p>
+    <p class="cg-reveal">
+      Each room corresponds to an emotional state: anticipation, suspension, deflation, eerie calm, overcrowding, and the particular loneliness of being somewhere too bright at 3am. The project takes Marc Augé's concept of the non-place seriously as an aesthetic proposition — what does it look like to live inside a transitional space rather than pass through one?
+    </p>
+    <div class="video-wrapper cg-reveal">
+      <iframe src="https://www.youtube.com/embed/G6fcqUzV55w" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="cg-reveal">Social Ecology</h2>
+    <p class="cg-reveal">
+      Exploring the way people and practices of various types coexist in the same ecosystem. In a module on Social Ecology, I travelled to Sargalaya, Kerala — a village of handicrafts. I interviewed artisans there and made a short experimental documentary, then used footage and field recordings as source material for the 3D work.
+    </p>
+    <p class="cg-reveal">
+      The result tries to hold the texture of the place: the weave of labour, trade, and attention that makes a village economy run. Blender here was used less as a modelling tool and more as a compositional one — assembling found imagery into sequence.
+    </p>
+    <div class="video-wrapper cg-reveal">
+      <iframe src="https://www.youtube.com/embed/VhFF9fOu0k4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="cg-reveal">Tourists Don't Like Tourists</h2>
+    <p class="cg-reveal">
+      An animated triptych of experiences. It questions the behaviours of tourists when travelling — their psyche and the superficial nature of modern tourism. Three scenes, three archetypes, one uncomfortable mirror.
+    </p>
+    <p class="cg-reveal">
+      The triptych format was a deliberate choice: three parallel windows into three versions of the same bad faith. Each panel uses a different colour temperature to mark the emotional register — cold observation, warm nostalgia, harsh fluorescence.
+    </p>
+    <div class="video-wrapper cg-reveal">
+      <iframe src="https://www.youtube.com/embed/OuqxDMh7vEg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="cg-reveal">Rock and Slope Gameplay</h2>
+    <p class="cg-reveal">
+      A first-person playable game where you navigate a hellish landscape to push a boulder up a relentless slope. Built as my first foray into game development, it naturally came with technical imperfections—but these "bugs" quickly evolved into thematic features.
+    </p>
+    <p class="cg-reveal">
+      For instance, the boulder wasn't a perfect sphere, causing it to occasionally lodge into the slope. This slower, stable movement offered a safe alternative to the high-risk rolling mechanics. Locked in a first-person perspective with no visible finish line, the game became a metaphor for subjective struggle, where the sheer difficulty made reaching the top a profoundly hard-earned satisfaction.
+    </p>
+    <div class="video-wrapper cg-reveal">
+      <iframe src="https://www.youtube.com/embed/v6wh0UVOyHg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="next-project cg-reveal">
+     
+      <div>
+        <a href="offside.html" style="font-weight: 500; color: var(--text);">Next: Offside League →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
+</body>
+</html>

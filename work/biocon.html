@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redesigning BioCon Hebbagodi — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 15px; font-weight: 500; color: var(--text); margin: 56px 0 20px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  /* Details Grid (For Stats) */
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; padding: 24px; background: #fafafa; border-radius: 6px; border: 1px solid var(--border); }
+  @media (min-width: 600px) { .detail-grid { grid-template-columns: repeat(4, 1fr); } }
+  .detail-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .detail-value { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+
+  /* 3-Column Grid for Interventions */
+  .intervention-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin: 40px 0; }
+  @media (min-width: 600px) { .intervention-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+  .int-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .int-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .int-col p { font-size: 12.5px; line-height: 1.6; margin-bottom: 12px; padding-left: 12px; border-left: 2px solid #eee; }
+
+  /* Image blocks and Diagrams */
+  .img-wrapper { margin: 48px 0; }
+  .img-block { width: 100%; background: #f9fafb; border-radius: 8px; border: 1px solid #f0f0f0; padding: 40px 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; overflow: hidden; }
+  .img-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: 16px; line-height: 1.5; }
+  
+  /* Diagram Split View */
+  .diagram-split { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 40px 0; align-items: center; }
+  @media (min-width: 600px) { .diagram-split { grid-template-columns: 1fr 1fr; } }
+  .diagram-text ul { list-style: none; padding: 0; }
+  .diagram-text li { position: relative; padding-left: 16px; font-size: 13px; color: #444; margin-bottom: 12px; line-height: 1.6; }
+  .diagram-text li::before { content: '•'; position: absolute; left: 0; color: var(--muted); }
+
+  /* Tables */
+  .stakeholder-table { width: 100%; border-collapse: collapse; margin: 40px 0; font-size: 13px; text-align: left; }
+  .stakeholder-table th { padding: 12px 16px; background: #fafafa; border-bottom: 2px solid var(--border); color: var(--text); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .stakeholder-table td { padding: 16px; border-bottom: 1px solid var(--border); color: #444; vertical-align: top; line-height: 1.6; }
+
+  /* Task/List boxes */
+  .task-box { border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin: 32px 0; background: #ffffff; }
+  .task-item { font-size: 13.5px; color: #444; margin-bottom: 16px; line-height: 1.6; padding-bottom: 16px; border-bottom: 1px solid #f5f5f5; }
+  .task-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .task-item strong { display: block; font-size: 12.5px; color: var(--text); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.02em; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Work</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>BioCon Hebbagodi</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Redesigning: BioCon Hebbagodi Station</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>2025</span>
+    <span class="article-tag">Case Study</span>
+    <span class="article-tag">UX / Service Design</span>
+  </div>
+
+  <div class="prose">
+    <p class="cg-reveal" data-delay="4">
+      BioCon Hebbagodi is a 10-week hypothetical project to redesign a new Namma Metro station on Bengaluru's Yellow Line into a culture science hub that turns 25-minute forced train gaps into meaningful public engagement. 
+    </p>
+    <p class="cg-reveal" data-delay="5">
+      The project reframes involuntary waiting, monsoon climate, vandalism, and a contentious corporate naming as design materials for public art, wayfinding, and community co-creation. This was an assignment for a class on leadership to assess our approach on real world projects.
+    </p>
+
+    <h2 class="cg-reveal">The Challenge</h2>
+    <p class="cg-reveal">
+      BioCon Hebbagodi opened on a new high-value corridor, but only 4-5 trains operate due to manufacturing delays, creating 25-minute gaps and punitive ₹50 fines for commuters who stay beyond 20 minutes. This produces a captive, frustrated audience in a largely under-activated station with confusing wayfinding, expensive last-mile options, and a corporate naming controversy.
+    </p>
+    <p class="cg-reveal">
+      <strong>How might we turn 25 minutes of forced waiting, fines, and spatial confusion at BioCon Hebbagodi into a station people voluntarily explore and feel co-own?</strong>
+    </p>
+
+    <div class="detail-grid cg-reveal">
+      <div>
+        <div class="detail-label">Wait Times</div>
+        <div class="detail-value">25-minute frequency creates involuntary dwell time with penalty risk instead of productive waiting.</div>
+      </div>
+      <div>
+        <div class="detail-label">Wayfinding</div>
+        <div class="detail-value">62% of passengers get lost and 67% follow crowds rather than signage in similar metro contexts.</div>
+      </div>
+      <div>
+        <div class="detail-label">Public Art</div>
+        <div class="detail-value">Public art in Indian transit spaces is often vandalised, poorly maintained, and treated as cosmetic.</div>
+      </div>
+      <div>
+        <div class="detail-label">Investment & Politics</div>
+        <div class="detail-value">Biocon has invested ₹65 crore in the station and faces naming backlash, while BMRCL has slow approval cycles.</div>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Research and Insights</h2>
+    <p class="cg-reveal">
+      The project began with site visits during peak hours, document reviews, and stakeholder mapping across Biocon Foundation, BMRCL Corporate Communications, Hebbagodi residents, and performance partners like Bengaluru Hubba. This was complemented by secondary research on monsoon data, invasive species (Lantana), station wayfinding behaviour, and public art failures.
+    </p>
+
+    <h2 class="cg-reveal">Concept: The 25-Minute Science Theater</h2>
+    <p class="cg-reveal">
+      The central concept is the "25-Minute Science Theater" — a station-scale system that transforms operational gaps into science art experiences calibrated to commuter behaviour and monsoon rhythms. Instead of minimising waiting, the project maximises its potential by treating each 20-30 second micro-interaction as a building block of curiosity and co-ownership.
+    </p>
+
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">Physical</div>
+        <p>Lantana seating, green wall, and acoustic panels act as touchable infrastructure, not just art.</p>
+        <p>A tall rotating DNA sculpture synchronised with train arrivals anchors wayfinding and spatial memory.</p>
+        <p>Monsoon-responsive elements include a hydrophobic selfie wall and visible water collection tubes.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">Digital</div>
+        <p>AR experiences at installations provide 20-30 second science stories.</p>
+        <p>A penalty waiving trail lets commuters cancel their ₹50 fine by scanning three stations, turning punishment into a game.</p>
+        <p>Real-time train timing is integrated into art, and a digital gallery loops 30-second science films.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">Social</div>
+        <p>Monthly Biocon employee curators select science content for the digital gallery, tying CSR to everyday presence.</p>
+        <p>Bengaluru Hubba performances are scheduled into train gaps as 15-minute shows between departures.</p>
+        <p>Co-working lounges and community sanitary committees make the station feel like shared civic space.</p>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Key Interventions</h2>
+
+    <div class="diagram-split cg-reveal">
+      <div class="img-block">
+        <svg width="60" height="120" viewBox="0 0 60 120" fill="none" stroke="#888" stroke-width="2">
+          <path d="M10,10 Q30,60 50,110 M50,10 Q30,60 10,110" />
+          <line x1="15" y1="25" x2="45" y2="25" />
+          <line x1="25" y1="50" x2="35" y2="50" />
+          <line x1="15" y1="95" x2="45" y2="95" />
+          <circle cx="10" cy="10" r="3" fill="#888"/>
+          <circle cx="50" cy="110" r="3" fill="#888"/>
+        </svg>
+      </div>
+      <div class="diagram-text">
+        <h3>DNA Wayfinding Sculpture</h3>
+        <ul>
+          <li>Constructed from individual acrylic rods that can be replaced within 15 minutes if damaged.</li>
+          <li>Acts as both wayfinding and science metaphor, linking molecular biology to the surrounding villages.</li>
+          <li>Has a manual override and projected animations fallback if the motor fails.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="diagram-split cg-reveal">
+      <div class="diagram-text">
+        <h3>Lantana Seating & Green Wall</h3>
+        <ul>
+          <li>Seating is designed with sacrificial outer layers intended to be vandalised and rewoven periodically.</li>
+          <li>The green wall uses cage mesh, drip irrigation, and water-resistant sealants to survive conditions.</li>
+          <li>A transparent lantana workshop in the concourse turns repair into a live craft performance.</li>
+        </ul>
+      </div>
+      <div class="img-block">
+        <svg width="100" height="60" viewBox="0 0 100 60" fill="none" stroke="#888" stroke-width="1.5">
+          <rect x="10" y="20" width="80" height="30" rx="4" />
+          <path d="M15,20 V50 M25,20 V50 M35,20 V50 M45,20 V50 M55,20 V50 M65,20 V50 M75,20 V50 M85,20 V50" stroke-dasharray="2 2" />
+          <path d="M10,25 H90 M10,35 H90 M10,45 H90" stroke-dasharray="2 2" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="diagram-split cg-reveal">
+      <div class="img-block">
+        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" stroke="#888" stroke-width="2">
+          <path d="M10,40 Q40,10 60,40 T110,40" stroke-dasharray="4 4"/>
+          <path d="M10,60 Q40,90 60,60 T110,60" stroke-dasharray="4 4"/>
+          <circle cx="110" cy="40" r="4" fill="#888"/>
+          <circle cx="110" cy="60" r="4" fill="#888"/>
+        </svg>
+      </div>
+      <div class="diagram-text">
+        <h3>Floor Based Wayfinding</h3>
+        <ul>
+          <li>DNA helix floor paths, coloured with Biocon's palette, lead directly to exits, seating zones, and key installations.</li>
+          <li>Guides flows more effectively than vertical signage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="diagram-split cg-reveal">
+      <div class="diagram-text">
+        <h3>Penalty Waiving AR Trail</h3>
+        <ul>
+          <li>Instead of treating fines as a dead loss, the system invites commuters to earn their way out of penalties through engagement.</li>
+          <li>Scan three stations to cancel the ₹50 fine, turning punishment into a game.</li>
+        </ul>
+      </div>
+      <div class="img-block">
+        <svg width="60" height="100" viewBox="0 0 60 100" fill="none" stroke="#888" stroke-width="2">
+          <rect x="10" y="10" width="40" height="80" rx="6" />
+          <circle cx="30" cy="80" r="4" />
+          <path d="M20,30 L40,30 M20,40 L30,40" stroke-width="1.5" />
+          <rect x="-5" y="20" width="10" height="10" stroke-dasharray="2 2" />
+          <path d="M-5,25 Q5,25 15,25" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Civic Durability and Risk Design</h2>
+    <p class="cg-reveal">Durability is treated as a design problem, not a maintenance afterthought.</p>
+
+    <div class="task-box cg-reveal">
+      <div class="task-item">
+        <strong>Designed for breakage, built for recovery</strong>
+        Modular DNA rods, sacrificial lantana layers, AR graffiti instead of physical vandalism, and caged green walls.
+      </div>
+      <div class="task-item">
+        <strong>Inverse ownership model</strong>
+        Biocon employee tile mosaics, hospital data art, community labour for lantana removal, and Open Lab Saturdays.
+      </div>
+      <div class="task-item">
+        <strong>Fail-safe passive, fail-active interactive</strong>
+        70% low-tech, nearly indestructible elements carry the core, while 30% tech is treated as optional bonus.
+      </div>
+      <div class="task-item">
+        <strong>Maintenance as performance</strong>
+        A Station Evolution Archive wall documents damage and repair, with visible "Under Repair Since" signage and public maintenance demos.
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">Stakeholder Value Map</h2>
+    <div style="overflow-x: auto;" class="cg-reveal">
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Stakeholder</th>
+            <th>Value Received</th>
+            <th>Value Delivered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>BMRCL</strong></td>
+            <td>Enhanced station experience, reduced crowding complaints, CSR halo</td>
+            <td>Design approvals, station access, safety oversight</td>
+          </tr>
+          <tr>
+            <td><strong>Biocon Foundation</strong></td>
+            <td>Reputation repair, employee engagement, naming controversy mitigation</td>
+            <td>₹25-40 lakh CSR funding, volunteer curation, BMRCL liaison</td>
+          </tr>
+          <tr>
+            <td><strong>Hebbagodi community</strong></td>
+            <td>Co-ownership, cultural programming, local identity representation</td>
+            <td>Advisory role, vandalism prevention, feedback and labour</td>
+          </tr>
+          <tr>
+            <td><strong>IT commuters</strong></td>
+            <td>Productive waiting, entertainment, fine avoidance, charging spaces</td>
+            <td>Usage data, feedback, potential crowdfunding contributions</td>
+          </tr>
+          <tr>
+            <td><strong>Bengaluru Hubba</strong></td>
+            <td>New venue and captive audience</td>
+            <td>Curated artist roster and performance programming</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="cg-reveal">Reflection</h2>
+    <p class="cg-reveal">
+      The project treats constraints—train frequency, fines, monsoon, vandalism, corporate politics—not as limitations to design around but as primary materials to design with. Working at this scale forced a shift from "installation thinking" to systems thinking that integrates policy, CSR, ecology, community identity, and agile operations into one coherent framework.
+    </p>
+
+    <div class="next-project cg-reveal">
+      
+      <div>
+        <a href="blender.html" style="font-weight: 500; color: var(--text);">Next: Blender Animations →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
+</body>
+</html>

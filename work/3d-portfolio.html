@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive 3D Portfolio & Code — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  .prose h2 { font-size: 15px; font-weight: 500; color: var(--text); margin: 56px 0 20px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .prose h3 { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 32px 0 12px 0; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  /* Blockquotes */
+  .info-quote { border-left: 2px solid var(--border); padding-left: 20px; margin: 40px 0; font-size: 13.5px; line-height: 1.8; color: var(--muted); font-style: italic; }
+
+  /* Details Grid (For Stats) */
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; padding: 24px; background: #fafafa; border-radius: 6px; border: 1px solid var(--border); }
+  @media (min-width: 600px) { .detail-grid { grid-template-columns: repeat(4, 1fr); } }
+  .detail-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .detail-value { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+
+  /* 3-Column Grid for Interventions */
+  .intervention-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin: 40px 0; }
+  @media (min-width: 600px) { .intervention-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+  .int-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .int-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .int-col p { font-size: 12.5px; line-height: 1.6; margin-bottom: 12px; padding-left: 12px; border-left: 2px solid #eee; }
+
+  /* Task/List boxes */
+  .task-box { border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin: 32px 0; background: #ffffff; }
+  .task-item { font-size: 13.5px; color: #444; margin-bottom: 16px; line-height: 1.6; padding-bottom: 16px; border-bottom: 1px solid #f5f5f5; }
+  .task-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .task-item strong { display: block; font-size: 12.5px; color: var(--text); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.02em; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Work</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Interactive 3D & Code</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Interactive 3D & Creative Coding</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>2024–2026</span>
+    <span class="article-tag">WebGL</span>
+    <span class="article-tag">Physical Computing</span>
+    <a href="https://portftest-gamma.vercel.app/" target="_blank" style="font-size:12px; color:var(--muted); text-decoration:underline; text-decoration-color:var(--border);">↗ Live 3D Site</a>
+  </div>
+
+  <div class="prose">
+
+    <p class="cg-reveal" data-delay="4">
+      A collection of experiments across WebGL, physical computing, and creative algorithms. It includes a spatial 3D portfolio where you explore works by moving through a virtual world, alongside hardware prototypes and web games that bridge the gap between code and interactive environments.
+    </p>
+
+    <div class="info-quote cg-reveal" data-delay="5">
+      A portfolio is already a strange object: a curated self, arranged for a viewer. Making it spatial asks a harder question — what does it feel like to be inside someone's work rather than looking at it?
+    </div>
+
+    <div class="detail-grid cg-reveal">
+      <div>
+        <div class="detail-label">Software</div>
+        <div class="detail-value">Three.js, WebGL, HTML/JS, p5.js</div>
+      </div>
+      <div>
+        <div class="detail-label">Hardware</div>
+        <div class="detail-value">ESP32, DC/Servo Motors, 7-Segment</div>
+      </div>
+      <div>
+        <div class="detail-label">Deployment</div>
+        <div class="detail-value">Vercel, Wireless ESP-NOW</div>
+      </div>
+      <div>
+        <div class="detail-label">My Role</div>
+        <div class="detail-value">Design, Development, Wiring</div>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">The 3D Portfolio</h2>
+    <p class="cg-reveal">
+      Most portfolios are lists. Grids of thumbnails that ask you to click, scan, judge. The interaction model is the same as an online shop — browse, filter, select. The 3D portfolio inverts that. Instead of a viewer selecting work, the viewer walks through a world that the work inhabits. Discovery is spatial.
+    </p>
+
+    <h3 class="cg-reveal">Navigation & Mechanics</h3>
+    <p class="cg-reveal">
+      The viewer moves through a 3D environment using standard WASD/arrow key controls. The world is small and deliberate — not a sprawling game level, but something closer to a gallery space. Each project lives inside a ring. Standing on or near a ring triggers that project's information, acting as a physical threshold for entering a piece of work. Walking away closes it.
+    </p>
+
+    <h3 class="cg-reveal">Visual Language</h3>
+    <p class="cg-reveal">
+      The world uses a dark, atmospheric rendering style — deep purples, volumetric light, soft glow on the rings. The aesthetic sits somewhere between a late-night planetarium and a contemplative game environment. It is designed to feel slow on purpose.
+    </p>
+
+    <h2 class="cg-reveal">Creative Coding & Physical Prototyping</h2>
+    <p class="cg-reveal">
+      Beyond the browser, my coding practice extends into physical computing and logic-driven web experiments. Bridging the digital and physical realms often reveals how brittle code actually is when it meets gravity, friction, and network latency.
+    </p>
+
+    <div class="intervention-grid cg-reveal">
+      <div class="int-col">
+        <div class="int-col-title">AQI Reactive Art</div>
+        <p>A physical installation fetching real-time Air Quality Index (AQI) data over WiFi.</p>
+        <p>Using an ESP32, a servo, and a DC motor, the physical movement speed maps directly to the live environmental data of different cities. The worse the air, the more frantic the motion.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">ESP-NOW Timers</div>
+        <p>A hardware prototype featuring three 7-segment displays driven by dual ESP32 microcontrollers.</p>
+        <p>The boards communicate wirelessly via the ESP-NOW protocol, bypassing traditional WiFi networks to maintain a perfectly synchronized 5-minute countdown.</p>
+      </div>
+      <div class="int-col">
+        <div class="int-col-title">WordPerfect</div>
+        <p>A multiplayer web-based word game built entirely in a single HTML file.</p>
+        <p>It served as an exercise in extreme constraint and rapid iteration, taking direct user feedback to refine the game loops and logic on the fly without complex backend architecture.</p>
+      </div>
+    </div>
+
+    <h2 class="cg-reveal">What It Taught Me</h2>
+    
+    <div class="task-box cg-reveal">
+      <div class="task-item">
+        <strong>Spatial Interfaces Demand Attention</strong>
+        Building the 3D world made it very clear that spatial interfaces are arguments about how attention works. A flat grid asks for rapid scanning. A 3D world asks for dwelling.
+      </div>
+      <div class="task-item">
+        <strong>The Performance Tax</strong>
+        WebGL on mobile is hostile. The final version makes significant compromises to run well across devices — lower poly counts, simplified shaders, reduced draw calls. The tradeoffs are always between fidelity and reach.
+      </div>
+      <div class="task-item">
+        <strong>Hardware is Unforgiving</strong>
+        Working with ESP32s and motors taught me that code that works perfectly in a simulation will inevitably fail when a wire is loose or a motor draws too much current. It grounds algorithmic thinking in physical reality.
+      </div>
+    </div>
+
+    <p class="cg-reveal">
+      I'm not sure a 3D portfolio is the right answer for every designer. But building it, alongside these physical prototypes, permanently changed how I think about the default assumptions baked into the screens and templates we use every day.
+    </p>
+
+    <div class="next-project cg-reveal">
+      
+      <div>
+        <a href="../index.html" style="font-weight: 500; color: var(--text);">Back to Home →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
+</body>
+</html>

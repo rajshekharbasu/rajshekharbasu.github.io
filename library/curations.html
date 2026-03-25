@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curations Log — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  
+  .article-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; margin-bottom: 56px; align-items: center; }
+  .article-tag { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; }
+
+  /* Typography */
+  .prose p { font-size: 13.5px; line-height: 1.8; color: #444; margin-bottom: 24px; }
+  
+  /* Log / Timeline Layout */
+  .log-container { margin-top: 56px; border-left: 1px solid var(--border); padding-left: 24px; margin-left: 8px; }
+  
+  .log-entry { position: relative; margin-bottom: 64px; }
+  .log-entry:last-child { margin-bottom: 0; }
+  
+  /* Timeline node */
+  .log-entry::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    background: var(--bg);
+    border: 1.5px solid var(--text);
+    border-radius: 50%;
+  }
+
+  .log-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .log-date { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 500; }
+  .log-category { font-size: 10px; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+  
+  .log-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 12px; letter-spacing: -0.01em; }
+  .log-content p { font-size: 13.5px; line-height: 1.7; color: #444; margin-bottom: 16px; }
+  .log-content p:last-child { margin-bottom: 0; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: space-between;" class="cg-reveal" data-delay="0">
+    <a href="../index.html" class="nav-name" style="font-weight:500; color:var(--text);">Rajshekhar Basu</a>
+    <ul class="nav-links">
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Library</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Curations Log</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Curations Log</h1>
+  <div class="article-meta cg-reveal" data-delay="3">
+    <span>Ongoing</span>
+    <span class="article-tag">Inspiration</span>
+    <span class="article-tag">Notes</span>
+  </div>
+
+  <div class="prose cg-reveal" data-delay="4">
+    <p>
+      A running index of things I've found, read, listened to, or played that left a mark. Instead of highly polished reviews, these are just raw notes on why something felt interesting or important at the time I encountered it.
+    </p>
+  </div>
+
+  <div class="log-container">
+
+    <div class="log-entry cg-reveal">
+      <div class="log-header">
+        <span class="log-date">Mar 2026</span>
+        <span class="log-category">Film / Trailer</span>
+      </div>
+      <div class="log-title">Dune 3 Trailer</div>
+      <div class="log-content">
+        <p>
+          Something that I interpret from Paul's arc is that rather than questioning whether a person has superhuman abilities and if that makes them worthy of admiration, DUNE attempts to question power and the level of responsibility with which people wield it. In Paul's case, he used it for vengeance and personal motives, such as protecting his family and loved ones. He manipulated the people to do his bidding because he knew that those who saw him as a god would follow him and obey him blindly. 
+        </p>
+        <p>
+          I don't think Paul having all these qualities is the critique Frank Herbert is making here, but rather the way people use them, and how powerful people can fall into the temptation of manipulating and oppressing. I think it's also a commentary on us as humans—how we can also fall into blindly following people who have ulterior motives but create a facade to deceive us so they can manipulate us to their advantage. So it is both a critique of powerful/charismatic leaders and of the 'followers'.
+        </p>
+        <p>
+          What I really love about Denis’s cinematic trilogy is that each has its own identity. Part One was contemplative and an introduction to the universe; Part Two was action-filled and the rise of the protagonist; Part Three looks to be a thriller focused on the consequences of the protagonist’s actions. Paul fell from nobility, rose as a revolutionary, then fell again from sovereignty. His arc is very intriguing.
+        </p>
+      </div>
+    </div>
+
+    <div class="log-entry cg-reveal">
+      <div class="log-header">
+        <span class="log-date">Dec 2025</span>
+        <span class="log-category">Reading</span>
+      </div>
+      <div class="log-title">Destruction and Sorrow Beneath the Heavens</div>
+      <div class="log-content">
+        <p>
+          Currently reading László Krasznahorkai's travelogue through China. It is a bleak but mesmerizing look at the erasure of classical culture by rapid, state-sponsored modernization. As someone studying human-centered design, the book is a sharp reminder that "progress" and "infrastructure" are not inherently neutral—they can be violent forces of homogenisation. Krasznahorkai's obsession with what is permanently lost in the pursuit of the new makes you reconsider the actual cost of building the future.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="next-project cg-reveal">
+    
+    <div>
+      <a href="../index.html" style="font-weight: 500; color: var(--text);">Back to Home →</a>
+    </div>
+  </div>
+
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -20px 0px" 
+    });
+
+    reveals.forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+</body>
+</html>

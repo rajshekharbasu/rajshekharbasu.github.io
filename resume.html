@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Base Layout */
+  .container { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+  
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 32px; display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  
+  .article-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 48px; letter-spacing: -0.01em; }
+
+  /* Resume specific typography */
+  .resume-section { margin-bottom: 48px; }
+  .resume-section h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 24px; }
+  
+  .resume-item { margin-bottom: 24px; }
+  .resume-item:last-child { margin-bottom: 0; }
+  
+  .resume-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 8px; }
+  .resume-role { font-size: 14.5px; font-weight: 500; color: var(--text); }
+  .resume-date { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .resume-org { font-size: 13.5px; color: #444; margin-bottom: 8px; }
+  
+  .resume-details { font-size: 13px; line-height: 1.6; color: var(--muted); }
+  .resume-details ul { padding-left: 16px; margin-top: 8px; }
+  .resume-details li { margin-bottom: 8px; }
+  .resume-details a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.15s; }
+  .resume-details a:hover { opacity: 0.7; }
+  
+  .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .pill { background: #f3f4f6; padding: 4px 10px; border-radius: 4px; font-size: 12.5px; color: #444; }
+
+  /* Footer Links */
+  .next-project { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-text { font-size: 13px; color: var(--muted); }
+  .contact-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav style="justify-content: flex-end;" class="cg-reveal" data-delay="0">
+    <ul class="nav-links">
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb cg-reveal" data-delay="1">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Resume</span>
+  </div>
+
+  <h1 class="article-title cg-reveal" data-delay="2">Rajshekhar Basu</h1>
+
+  <div class="resume-section cg-reveal" data-delay="3">
+    <h2>Education</h2>
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span class="resume-role">B.Des (Human-Centered Design)</span>
+        <span class="resume-date">2024 – 2028</span>
+      </div>
+      <div class="resume-org">Srishti Manipal Institute of Art, Design and Technology</div>
+      <div class="resume-details">
+        <ul>
+          <li>Current CGPA: 8.5/10</li>
+          <li>Relevant Coursework: Interactive Design, User Experience Principles, Design Research</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-section cg-reveal" data-delay="4">
+    <h2>Experience</h2>
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span class="resume-role">Intern</span>
+        <span class="resume-date">June 2025</span>
+      </div>
+      <div class="resume-org">Famous Studios</div>
+    </div>
+  </div>
+
+  <div class="resume-section cg-reveal" data-delay="5">
+    <h2>Select Projects</h2>
+    <div class="resume-details">
+      <ul>
+        <li><a href="work/monument.html">Video as Monument — A Cage of Pixels</a></li>
+        <li><a href="work/biocon.html">Redesigning BioCon Hebbagodi Metro</a></li>
+        <li><a href="work/3d-portfolio.html">Interactive 3D Portfolio & Creative Code</a></li>
+        <li><a href="work/offside.html">Building Offside — Football for BITS Goa</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="resume-section cg-reveal" data-delay="6">
+    <h2>Skills & Tools</h2>
+    <div class="resume-details">
+      Proficient in:
+      <div class="pill-list">
+        <span class="pill">Framer</span>
+        <span class="pill">Blender</span>
+        <span class="pill">DaVinci Resolve</span>
+        <span class="pill">TouchDesigner</span>
+        <span class="pill">AI Tools</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-section cg-reveal" data-delay="7">
+    <h2>Interests</h2>
+    <div class="pill-list">
+      <span class="pill">Sports</span>
+      <span class="pill">Tech</span>
+      <span class="pill">Cultural Zeitgeist</span>
+    </div>
+  </div>
+
+  <div class="next-project cg-reveal">
+    <div class="contact-text">
+      <a href="mailto:rajshekharbasu.5@gmail.com">rajshekharbasu.5@gmail.com</a>
+    </div>
+    <div>
+      <a href="index.html" style="font-weight: 500; color: var(--text);">Back to Home →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80); 
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -20px 0px" 
+    });
+
+    reveals.forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+</body>
+</html>
