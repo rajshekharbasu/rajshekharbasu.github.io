@@ -1,367 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajshekhar Basu - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajshekhar Basu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Library list */
+  .library-list { border-top: 1px solid var(--border); }
+  .library-item {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: padding 0.15s, background 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .library-item:hover { background: var(--hover-bg); padding: 11px 8px; margin: 0 -8px; }
+  .library-left { display: flex; align-items: center; gap: 10px; }
+  .library-title { font-size: 13px; color: var(--text); }
+  .library-tag {
+    font-size: 10px; color: var(--muted);
+    background: #f3f4f6; padding: 1px 7px; border-radius: 3px; text-transform: capitalize;
+  }
+  .library-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .library-category { font-size: 12px; color: var(--muted); }
+  .library-date { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 32px; text-align: right; }
+
+  /* Intro links */
+  .intro p a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .intro p a:hover { color: var(--text); }
+
+  /* Section headers */
+  .section-header {
+    display: flex; align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--text); }
+
+  .library-section { margin-bottom: 48px; }
+  .intro { margin-bottom: 48px; }
+  .intro h1 { font-size: 14px; font-weight: 500; margin-bottom: 14px; }
+  .intro p { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }
+
+  @media (max-width: 600px) {
+    .library-item:hover { background: none; padding: 11px 0; margin: 0; }
+  }
+
+  /* Tasteful Animation Classes */
+  .cg-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cg-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header>
-        <div class="header-content">
-            <h1>Rajshekhar Basu</h1>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#work">Work</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="contact-info">
-                <span class="time" id="current-time">8:22:43 PM</span>
-                <a href="mailto:rajshekharbasu.5@gmail.com">Email</a>
-                <a href="https://instagram.com/xandarzen" target="_blank">Instagram</a>
-            </div>
+<div class="container">
+
+  <nav style="justify-content: flex-end;" class="cg-reveal" data-delay="0">
+    <ul class="nav-links">
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="intro">
+    <h1 class="cg-reveal" data-delay="1">Rajshekhar Basu</h1>
+    <p class="cg-reveal" data-delay="2">I'm a designer and creative technologist based in Bangalore / Mumbai.</p>
+    <p class="cg-reveal" data-delay="3">I enjoy pushing boundaries and exploring new ways to express myself without limitations. I'm drawn to the details that most people never notice but always feel.</p>
+    <p class="cg-reveal" data-delay="4">Currently studying <a href="https://srishtimanipalinstitute.in/academics-overview/programs-courses/4-year-ug-professional-program/human-centered-design/" target="_blank">Human-Centered Design at Srishti Manipal</a>. I design human-centred experiences — from immersive 3D worlds to real-time sports platforms.</p>
+    <p class="cg-reveal" data-delay="5">You can reach out to me on <a href="https://linktr.ee/XandarZen" target="_blank">Socials</a> or see more of my work on <a href="https://www.instagram.com/xandarzen/" target="_blank">Instagram</a>.</p>
+  </div>
+
+  <div class="library-section" id="library">
+    <div class="section-header cg-reveal">
+      <span class="section-title">Library</span>
+    </div>
+    <div class="library-list">
+
+      <a href="work/monument.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Video as Monument — A Cage of Pixels</span>
         </div>
-    </header>
+        <div class="library-right">
+          <span class="library-category">New Media</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="home-section">
-            <div class="hero-container">
-                <h1 class="main-title">Rajshekhar Basu</h1>
-                <div class="animated-faces">
-                    <!-- Placeholder for animated face images -->
-                    <div class="face-placeholder">Animated Face 1</div>
-                    <div class="face-placeholder">Animated Face 2</div>
-                    <div class="face-placeholder">Animated Face 3</div>
-                    <div class="face-placeholder">Animated Face 4</div>
-                    <div class="face-placeholder">Animated Face 5</div>
-                    <div class="face-placeholder">Animated Face 6</div>
-                    <div class="face-placeholder">Animated Face 7</div>
-                </div>
-                <h2 class="subtitle">A Human centered Design student</h2>
-            </div>
-        </section>
+      <a href="work/biocon.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Redesigning BioCon Hebbagodi Metro</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">Design</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="about-container">
-                <div class="about-text">
-                    <h2>Rajshekhar Basu</h2>
-                    <p>A student of Human-Centered Design exploring the intersection of interaction, art, and open-source technology.</p>
-                    <p>My design philosophy is shaped by my advocacy for open-source technology and my love for visual storytelling, inspired by cinema. I bring ideas to life using a versatile toolkit that includes Blender, DaVinci Resolve, TouchDesigner, and Python, constantly seeking new ways to bridge the gap between human needs and creative execution."</p>
-                </div>
-                <div class="about-info">
-                    <div class="info-box">
-                        <h3>STUDYING</h3>
-                        <p><strong>Human Centered Design</strong></p>
-                        <p>Bengali in Mumbai studying in / at Srishti Manipal Bangalore</p>
-                    </div>
-                    <div class="info-box">
-                        <h3>LANGUAGES</h3>
-                        <p>English</p>
-                        <p>Hindi</p>
-                        <p>Bengali</p>
-                        <p>Latin</p>
-                    </div>
-                    <div class="info-box">
-                        <h3>SOFTWARES</h3>
-                        <p>Blender</p>
-                        <p>Python</p>
-                        <p>DaVinci Resolve</p>
-                        <p>Photoshop</p>
-                    </div>
-                    <div class="profile-image">
-                        <!-- Placeholder for profile illustration -->
-                        <div class="image-placeholder">Profile Illustration</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <a href="work/offside.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Building Offside — Football for BITS Goa</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">Website</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-        <!-- Work Section - Table Format -->
-        <section id="work" class="work-section">
-            <h2 class="section-title">Work</h2>
+      <a href="work/blender.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Blender Animations — Motion & 3D</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">3D</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-            <!-- Project 1: Observational Sketches -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Observational Sketches</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">2022</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DESCRIPTION</td>
-                            <td class="content-cell">
-                                <p>A collection of observational sketches capturing everyday moments and scenes.</p>
-                            </td>
-                            <td class="media-cell">
-                                <div class="image-placeholder">Sketch Gallery Images</div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <a href="work/3d-portfolio.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Interactive 3D Portfolio & Code</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">Creative Code</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-            <!-- Project 2: Life Could Be a Dream -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Life Could Be a Dream</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">Sep 2024</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">OVERVIEW</td>
-                            <td class="content-cell">
-                                <p>A short animation made to show a dreamlike experience through colors.</p>
-                            </td>
-                            <td class="media-cell">
-                                <div class="video-placeholder">
-                                    <p>YouTube Video Embed</p>
-                                    <p class="embed-note"><!-- Insert YouTube embed code here --></p>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">PROCESS</td>
-                            <td class="content-cell" colspan="2">
-                                <h4>Process</h4>
-                                <p>A dreamlike experience is often fuzzy when we try to remember it. Balancing the abstraction and stylization of the video took many iterations. Translating the distorted visual in my dream was the biggest hurdle in my workflow. I finished this project in 2 days</p>
-                                <div class="process-images">
-                                    <div class="image-placeholder">Process Image 1</div>
-                                    <div class="image-placeholder">Process Image 2</div>
-                                </div>
-                                <p class="caption">Screenshots of early work in progress</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <a href="library/curations.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Curations Log</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">Taste</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-            <!-- Project 3: Tourists don't like Tourists -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Tourists don't like Tourists</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">Nov 2024</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">OVERVIEW</td>
-                            <td class="content-cell">
-                                <p>An animated triptych of experiences. It questions behaviours of tourists when travelling, their psyche and the superficial nature of modern tourism.</p>
-                            </td>
-                            <td class="media-cell">
-                                <div class="video-placeholder">
-                                    <p>YouTube Video Embed</p>
-                                    <p class="embed-note"><https://youtu.be/OuqxDMh7vEg></p>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">PROCESS</td>
-                            <td class="content-cell" colspan="2">
-                                <h4>Part 1</h4>
-                                <p>The first part of the piece is centered about the desperate nature of tourists wanting special photographs. Tourists don't like other tourists because it reminds them of where they are trying to escape from. That is why every tourist tries to eat a unique dish, visit a special place and do something no other tourist has done. The exclusivity of having done a unique task gives them a sense of pride and bragging rights to their circle of people.</p>
-                                
-                                <h4>Part 2</h4>
-                                <p>The second part of the piece is a more positive one. It is similar to the 3rd iteration. It tackles the problem of overcrowding in tourist hotspots and the freedom/lack of responsibility a tourist experiences when on holiday. The sea of water has been replaced with a sea of tourists sunbathing. The sunbathing tourists look devoid of life because that is the nature of tourists who do not value the experience over momentary pleasure.</p>
-                                
-                                <h4>Part 3</h4>
-                                <p>The third piece is the least abstract and shortest of the three. It shows a more almost dystopian travel agency which is a repurposed photo studio where people pay for their photos to be taken at exclusive travel destinations without travelling anywhere. It highlights the superficial nature that tourism is heading in.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <a href="library/books.html" class="library-item cg-reveal">
+        <div class="library-left">
+          <span class="library-title">Books I've Read</span>
+        </div>
+        <div class="library-right">
+          <span class="library-category">Taste</span>
+          <span class="library-date">—</span>
+        </div>
+      </a>
 
-            <!-- Project 4: Social Ecology: People & Practices -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Social Ecology: People & Practices</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">Dec 2024</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">OVERVIEW</td>
-                            <td class="content-cell">
-                                <p>Exploring the way people and practices of various types coexist in the same ecosystem.</p>
-                                <p>In our module of Social Ecology, we travelled to Sargalaya, Kerala, a village of handicrafts. We interviewed some of them and made a short experimental documentary on them.</p>
-                            </td>
-                            <td class="media-cell">
-                                <div class="video-placeholder">
-                                    <p>YouTube Video Embed</p>
-                                    <p class="embed-note"><!-- Insert YouTube embed code here --></p>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    </div>
+  </div>
 
-            <!-- Project 5: Rock and Slope (Sisyphus Game) -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Rock and Slope</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">2024</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">IDEA</td>
-                            <td class="content-cell" colspan="2">
-                                <h4>Idea</h4>
-                                <p>The theme of my project, centered around the myth of Sisyphus and the concept of Absurdism, was chosen due to a fascination with the human experience of struggle and the search for meaning in an indifferent universe. In a world where challenges often seem insurmountable and purpose elusive, I am intrigued by how individuals navigate their own "boulders" in life. This exploration of resilience and personal growth through interactive engagement allows participants to reflect on their own experiences while engaging with the timeless narrative of Sisyphus. By transforming this myth into a physical interactable virtual experience, I aim to provoke thought about the nature of existence and the potential for finding joy in the struggle itself.</p>
-                                <div class="process-images">
-                                    <div class="image-placeholder">TouchDesigner Screenshot</div>
-                                    <div class="image-placeholder">Force Sensor Setup</div>
-                                </div>
-                                <p class="caption">TouchDesigner file component of Force sensor and the 3d rock</p>
-                            </td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">PROCESS</td>
-                            <td class="content-cell">
-                                <p>My first iteration involved a force sensor connected to an Arduino Uno and the amount of force inputted would then have the boulder change speeds as it rolled up the mountain.</p>
-                                <div class="image-placeholder">Arduino Setup Image</div>
-                                <p class="caption">Force Sensor, Breadboard, Arduino Uno and a 4.7k resistor to measure force inputted</p>
-                            </td>
-                            <td class="media-cell">
-                                <h4>Execution</h4>
-                                <p>I have built a playable game involving a boulder which constantly rolls down and you as a player have to navigate around a hellish landscape to try and push it up the slope. Due to the game being my first game it had its fair share of problems, but I gave them new meaning with the context of my topic. At times the boulder stopped rolling, that was because it was not a perfect sphere and some deformities made it sit on the slope. It moved much slower but the benefit was that it would not roll back. This can be seen as the slow and steady approach as compared to the high risk high reward case when the ball rolls. At times, the player wonders how far they have left to reach the end, but they can not do that. Life is lived through our perspective and that is why the game is in the first person and you took people some time to get used to the controls as the boulder rushed past them at the start. Eventually most of the players could manage the controls but could not reach the end. The ones who did reach the end, felt satisfaction in completing a difficult task. These small decisions and fortunate bugs in the games really added character to my game and gave it a whole new meaning for the players playing it.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  <footer class="footer cg-reveal">
+    <span class="footer-name">© 2026 Rajshekhar Basu</span>
+    <ul class="footer-links">
+      <li><a href="https://linktr.ee/XandarZen" target="_blank">Socials</a></li>
+      <li><a href="mailto:rajshekharbasu.5@gmail.com">Email</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+  </footer>
 
-            <!-- Project 6: Non Spaces -->
-            <div class="project-container">
-                <table class="project-table">
-                    <thead>
-                        <tr>
-                            <th class="col-info">PROJECT INFO</th>
-                            <th class="col-content">CONTENT</th>
-                            <th class="col-media">MEDIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="project-header-row">
-                            <td class="label-cell">TITLE</td>
-                            <td colspan="2"><h3>Non Spaces</h3></td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">DATE</td>
-                            <td colspan="2">Apr 2025</td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">OVERVIEW</td>
-                            <td class="content-cell">
-                                <p>A six room visual journey through various hyperbole of emotions we feel in non places.</p>
-                                <p>Places designed for transition.</p>
-                            </td>
-                            <td class="media-cell">
-                                <div class="video-placeholder">
-                                    <p>YouTube Video Embed</p>
-                                    <p class="embed-note"><!-- Insert YouTube embed code here --></p>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="section-row">
-                            <td class="label-cell">CONCEPT</td>
-                            <td class="content-cell" colspan="2">
-                                <p>These six rooms tell a story about how the places we build can impact us in ways we never saw coming. The first brutalist room where fog drifts through windows shows how the unknown always finds ways into our carefully ordered world. Walking through corridors that slowly close in reminds us of how our choices can narrow when we feel trapped by circumstance. The white room with footsteps above turns our sense of up and down upside down, suggesting that what we take for granted might easily be reversed. The black and white sea appearing at both floor and ceiling removes all sense of direction, placing us in a between-space where ordinary rules no longer apply. Tables breaking apart into glitchy fragments show how things we rely on daily can suddenly lose their meaning and purpose. The panopticon at the end reveals our truth: we exist always as both observers and observed, never truly separate from what we witness. Throughout this journey, these spaces suggest that our buildings—our attempt to make sense of the world—actually reveal how easily our perception can shift, bend, or break entirely. The walls we build to organize our lives might be telling us more about the fragility of understanding than about our space.</p>
-                                <p>The audio design mirrors our journey through shifting realities. Layered synths and ambient crowds create emotional architecture, transforming subtly with each new environment. Like the spaces themselves, these sounds blur boundaries between observation and experience, reinforcing how perception exists in the uncertain territory between reality and mind.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+</div>
 
-            <!-- Work List Page -->
-            <div class="work-list-container">
-                <h2>All Projects</h2>
-                <ul class="work-list">
-                    <li><a href="#observational-sketches">Observational Sketches</a></li>
-                    <li><a href="#life-could-be-a-dream">Life Could Be a Dream</a></li>
-                    <li><a href="#tourists">Tourists don't like Tourists</a></li>
-                    <li><a href="#social-ecology">Social Ecology: People & Practices</a></li>
-                    <li><a href="#rock-and-slope">Rock and Slope</a></li>
-                    <li><a href="#non-spaces">Non Spaces</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <h2>Contact</h2>
-                <p>email: <a href="mailto:rajshekharbasu.5@gmail.com">rajshekharbasu.5@gmail.com</a></p>
-                <p>instagram: <a href="https://instagram.com/xandarzen" target="_blank">@xandarzen</a></p>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".cg-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delayMultiplier = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delayMultiplier * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    reveals.forEach((element) => observer.observe(element));
+  });
+</script>
 </body>
 </html>
